@@ -7,7 +7,6 @@ USER_NAME = "User" #default username.
 pygame.mixer.pre_init(22050,16,2,512)
 pygame.mixer.init()
 
-#initialise sounds
 snd_pellet = {}
 snd_pellet[0] = pygame.mixer.Sound('sounds/pellet1.wav')
 snd_pellet[1] = pygame.mixer.Sound('sounds/pellet2.wav')

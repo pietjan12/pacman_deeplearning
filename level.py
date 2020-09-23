@@ -1,4 +1,4 @@
-import random, tile_ids, pacman, sounds
+import random, tile_ids, pacman
 
 class level():
 
@@ -69,6 +69,7 @@ class level():
             return False
 
     def CheckIfHitSomething(self, playerX, playerY, row, col):
+        from pacman import snd_pellet
 
         for iRow in range(row - 1, row + 2, 1):
             for iCol in range(col - 1, col + 2, 1):
@@ -81,7 +82,7 @@ class level():
                     if result == tile_ids.tileID['pellet']:
                         # got a pellet
                         pacman.thisLevel.SetMapTile(iRow, iCol, 0)
-                        sounds.snd_pellet[pacman.player.pelletSndNum].play()
+                        snd_pellet[pacman.player.pelletSndNum].play()
                         pacman.player.pelletSndNum = 1 - pacman.player.pelletSndNum
 
                         pacman.thisLevel.pellets -= 1
@@ -95,9 +96,10 @@ class level():
 
 
                     elif result == tile_ids.tileID['pellet-power']:
+                        from pacman import snd_powerpellet
                         # got a power pellet
                         pacman.thisLevel.SetMapTile(iRow, iCol, 0)
-                        sounds.snd_powerpellet.play()
+                        snd_powerpellet.play()
 
                         pacman.thisGame.AddToScore(100)
                         pacman.thisGame.ghostValue = 200

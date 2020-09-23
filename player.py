@@ -1,4 +1,4 @@
-import sounds, pacman
+import pacman
 
 class player():
 
@@ -55,12 +55,13 @@ class player():
                         pacman.thisGame.SetMode(2)
 
                     elif pacman.ghosts[i].state == 2:
+                        from pacman import snd_eatgh
                         # ghost is vulnerable
                         # give them glasses
                         # make them run
                         pacman.thisGame.AddToScore(pacman.thisGame.ghostValue)
                         pacman.thisGame.ghostValue = pacman.thisGame.ghostValue * 2
-                        sounds.snd_eatgh.play()
+                        snd_eatgh.play()
 
                         pacman.ghosts[i].state = 3
                         pacman.ghosts[i].speed = pacman.ghosts[i].speed * 4
@@ -77,11 +78,12 @@ class player():
             # check for collisions with the fruit
             if pacman.thisFruit.active == True:
                 if pacman.thisLevel.CheckIfHit(self.x, self.y, pacman.thisFruit.x, pacman.thisFruit.y, 8):
+                    from pacman import snd_eatfruit
                     pacman.thisGame.AddToScore(2500)
                     pacman.thisFruit.active = False
                     pacman.thisGame.fruitTimer = 0
                     pacman.thisGame.fruitScoreTimer = 120
-                    sounds.snd_eatfruit.play()
+                    snd_eatfruit.play()
 
         else:
             # we're going to hit a wall -- stop moving
