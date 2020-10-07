@@ -1,0 +1,15 @@
+name: pacman-DQN
+
+dependencies:
+  - python==3.8.5
+  - pip
+  - cudatoolkit==10.1.243
+  - cudnn=7.6.5=cuda10.1_0
+  - pip:
+    - numpy
+    - tensorflow
+    - gym
+    - matplotlib
+    - pygame
+    - gym[atari]
+
