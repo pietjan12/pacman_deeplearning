@@ -1,2 +1,2 @@
 # OpenRemote Object Tracking
-Freaky friday project containing pacman and in the future, a deep learning alghoritm capable of learning to beat pacman.
+Project containing pacman created in pygame and in the future, a deep Q network capable of learning to beat pacman.
